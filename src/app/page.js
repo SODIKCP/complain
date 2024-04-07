@@ -16,6 +16,9 @@ export default function Home() {
     if (event.target.value.length <= 1000) {
       setComplaintText(event.target.value);
     }
+    if (complaintText) {
+      setComplaintTextError(false);
+    }
   };
 
   const handleSubmit = (event) => {
@@ -64,6 +67,7 @@ export default function Home() {
       alert("กรุณากรอกข้อมูลให้ถูกต้อง");
     }
   };
+
   return (
     <div className="relative h-screen">
       <div className="sticky top-0 bg-black w-full min-h-[70px]">
@@ -90,11 +94,12 @@ export default function Home() {
               </p>
               <input
                 maxLength={70}
-                className={`border-2 w-[550px] h-[50px] pl-[10px] ${
+                className={`border-2 w-[100%] h-[50px] pl-[10px] ${
                   fullNameError ? "border-red-500 border" : ""
                 }`}
                 onChange={(e) => {
                   setFullName(e.target.value);
+                  setFullNameError(false);
                 }}
               ></input>
             </div>
@@ -103,12 +108,13 @@ export default function Home() {
                 อีเมล / เบอร์โทรศัพท์ <span className=" text-red-500">*</span>
               </p>
               <input
-                className={`border-2 w-[550px] h-[50px] pl-[10px] ${
+                className={`border-2 w-[100%] h-[50px] pl-[10px] ${
                   emailOrPhoneNumberError ? "border-red-500 border" : ""
                 }`}
                 placeholder="example@hotmail.com / 088-8888888"
                 onChange={(event) => {
                   setEmailOrPhoneNumber(event.target.value);
+                  setEmailOrPhoneNumberError(false);
                 }}
               ></input>
             </div>
@@ -120,7 +126,7 @@ export default function Home() {
                 maxLength={1000}
                 value={complaintText}
                 onChange={handleTextChange}
-                className={`border-2 w-[550px] h-[250px] pl-[10px] ${
+                className={`border-2 w-[100%] h-[250px] pl-[10px] ${
                   complaintTextError ? "border-red-500 border" : ""
                 }`}
               ></textarea>
