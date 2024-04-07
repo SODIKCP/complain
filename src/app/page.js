@@ -55,15 +55,18 @@ export default function Home() {
     }
 
     if (!hasError) {
-      alert(JSON.stringify(data.complaintText));
+      alert(
+        "Submit Successfully!\n ข้อความร้องเรียน: " +
+          JSON.stringify(data.complaintText)
+      );
       console.log(data);
     } else {
       alert("กรุณากรอกข้อมูลให้ถูกต้อง");
     }
   };
   return (
-    <>
-      <div className="sticky top-0">
+    <div className="relative h-screen">
+      <div className="sticky top-0 bg-black w-full min-h-[70px]">
         <Navbar />
       </div>
       <form className=" bg-white w-screen h-screen " onSubmit={handleSubmit}>
@@ -131,6 +134,6 @@ export default function Home() {
           </div>
         </div>
       </form>
-    </>
+    </div>
   );
 }

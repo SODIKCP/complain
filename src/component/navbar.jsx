@@ -5,7 +5,7 @@ import iconGlobal from "@/asset/image/global.svg";
 
 export default function Navbar() {
   return (
-    <div className="w-full h-[70px] bg-black flex items-center">
+    <div className="w-full min-h-[70px] flex items-center ">
       <div className="pl-[20px] flex items-center gap-6 ">
         <div>
           <Image src={iconGlobal} />
